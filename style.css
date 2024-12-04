@@ -6,16 +6,15 @@
     font-family: system-ui, -apple-system, sans-serif;
 }
 .main-content-1{
-    margin-left: 15rem;
-    margin-right: 15rem; 
+    margin-left: 8rem;
+    margin-right: 8rem; 
 
 }
 body {
-    /* margin-left: 15rem;
-    margin-right: 15rem; */
+   
     color: #333;
     background-color: #fafafa;
-    line-height: 1.6;
+    line-height: 1.3;
 }
 
 /* Navigation */
@@ -49,8 +48,16 @@ nav {
     transition: color 0.3s ease;
 }
 
+
 .nav-links a:hover {
-    color: #000;
+    color: #000000; /* Hover color */
+    font-weight: bolder;
+}
+
+.nav-links a.active {
+    color: #000000; /* Active state color */
+    font-weight: bold;
+    border-bottom: 2px solid #000000; /* Optional underline */
 }
 
 .see-work-btn {
@@ -76,7 +83,7 @@ nav {
     grid-template-columns: 1fr 2fr;
  
     gap: 80px;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .profile-section {
     position: sticky;
@@ -133,7 +140,7 @@ html {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -237,6 +244,7 @@ html {
 /* Awards section */
 .awards-section {
     margin-top: 60px;
+    margin-bottom: 60px;
 }
 
 .awards-section h2 {
@@ -280,12 +288,11 @@ html {
 
 /* Add these styles to your style.css file */
 .skills-container {
-    margin: 60px 0;
     width: 100%;
 }
 
 .skills-title {
-    font-size: 2.3rem;
+    font-size: 2rem;
     color: var(--text-color, #000);
     margin-bottom: 30px;
 }
@@ -317,7 +324,7 @@ html {
 .skill-item {
     color: var(--secondary-text-color, #666);
     margin-bottom: 10px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 1.4;
 }
 
@@ -371,71 +378,41 @@ html {
     margin: 0;
     color: #666;
 }
-
-.contact-section {
-    padding: 50px 0;
-    background-color: #f9f9f9;
+.contact{
+    margin-top: 30px;
 }
 
-.contact-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+
+/* Footer Styling */
+.minimal-footer {
+    background-color: #fff; /* White background */
+    padding: 1.5rem 2rem; /* Spacing around the footer */
+    text-align: center;
+    border-top: 1px solid #eaeaea; /* Subtle border at the top */
+    font-family: Arial, sans-serif; /* Clean font */
+    font-size: 0.9rem; /* Slightly smaller font size for minimalism */
+    color: #333; /* Neutral text color */
 }
 
-.contact-section p {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 30px;
+.footer-container {
+    display: flex;
+    justify-content: center; /* Evenly spaced items */
+    align-items: center; /* Vertically align text */
+    margin: 0 auto; /* Center align container */
+    gap: 1rem; /* Space between items */
 }
 
-.contact-link {
-    font-size: 2rem;
-    color: #555;
-    text-decoration: none;
-    transition: color 0.3s, transform 0.3s;
+.footer-item {
+    flex: 1; /* Ensure equal spacing */
+    text-align: center; /* Center-align text */
+    line-height: 1.5; /* Improve readability */
 }
 
-.contact-link:hover {
-    color: #ff6600;
-    transform: scale(1.2);
-}
-.footer-section {
-    background-color: #333;
-    color: white;
-    padding: 40px ;
-    font-size: 1rem;
+.footer-item br {
+    margin-top: 0.5rem;
+    line-height: 2; /* Adjust spacing for line breaks */
 }
 
-.footer-section h3 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    color: #fff;
-}
-
-.footer-section p {
-    color: #ccc;
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-}
-
-.footer-link {
-    font-size: 2rem;
-    color: #ccc;
-    margin: 0 10px;
-    transition: color 0.3s, transform 0.3s;
-    text-decoration: none;
-}
-
-.footer-link:hover {
-    color: #ff6600; /* Orange highlight */
-    transform: scale(1.2); /* Slight zoom effect */
-}
-
-.footer-section p.mt-4 {
-    font-size: 0.9rem;
-    color: #aaa;
-    margin-top: 20px;
-}
 
 /* Responsive Design */
 @media (max-width: 1024px) {
