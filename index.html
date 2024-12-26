@@ -253,12 +253,13 @@
                     });
 
                     homeLink
-                } else if (href === '/home') {
+                
+                }else if (href === '/home') {
                     // Dynamically load "About Me" content
-                    fetch('index.html')
+                    fetch('home.html')
                         .then(response => {
                             if (!response.ok) {
-                                throw new Error('Failed to load about-me.html');
+                                throw new Error('Failed to load home.html');
                             }
                             return response.text();
                         })
@@ -266,10 +267,9 @@
                             dynamicContent.innerHTML = data;
                         })
                         .catch(error => {
-                            console.error('Error loading about-me.html:', error);
+                            console.error('Error loading home.html:', error);
                         });
                 }else if (href === '/about-me') {
-                    // Dynamically load "About Me" content
                     fetch('about-me.html')
                         .then(response => {
                             if (!response.ok) {
@@ -284,7 +284,6 @@
                             console.error('Error loading about-me.html:', error);
                         });
                 } else if (href === '/project') {
-                    // Dynamically load "About Me" content
                     fetch('project.html')
                         .then(response => {
                             if (!response.ok) {
