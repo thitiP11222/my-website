@@ -21,9 +21,9 @@
                 <h2>Thitiporn</h2>
             </div>
             <div class="nav-toggle">
-                <a href="/index.html" id="homeLink" class="nav-link active">Home</a>
-                <a href="/about-me.html" id="aboutMeLink" class="nav-link">About Me</a>
-                <a href="/project.html" id="projectLink" class="nav-link">Project</a>
+                <a href="/home" id="homeLink" class="nav-link active">Home</a>
+                <a href="/about-me" id="aboutMeLink" class="nav-link">About Me</a>
+                <a href="/project" id="projectLink" class="nav-link">Project</a>
 
             </div>
 
@@ -251,7 +251,24 @@
                     document.getElementById(targetId)?.scrollIntoView({
                         behavior: 'smooth'
                     });
-                } else if (href === '/about-me.html') {
+
+                    homeLink
+                } else if (href === '/home') {
+                    // Dynamically load "About Me" content
+                    fetch('index.html')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Failed to load about-me.html');
+                            }
+                            return response.text();
+                        })
+                        .then(data => {
+                            dynamicContent.innerHTML = data;
+                        })
+                        .catch(error => {
+                            console.error('Error loading about-me.html:', error);
+                        });
+                }else if (href === '/about-me') {
                     // Dynamically load "About Me" content
                     fetch('about-me.html')
                         .then(response => {
@@ -266,7 +283,7 @@
                         .catch(error => {
                             console.error('Error loading about-me.html:', error);
                         });
-                } else if (href === '/project.html') {
+                } else if (href === '/project') {
                     // Dynamically load "About Me" content
                     fetch('project.html')
                         .then(response => {
