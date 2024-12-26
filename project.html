@@ -1,0 +1,156 @@
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <button class="nav-btn active" onclick="filterProjects('all', this)">All</button>
+    <button class="nav-btn" onclick="filterProjects('web', this)">Web</button>
+    <button class="nav-btn" onclick="filterProjects('app', this)">Apps</button>
+    <button class="nav-btn" onclick="filterProjects('bs', this)">Business & Software Development</button>
+    
+</nav>
+
+
+<!-- Projects Section -->
+<div class="experience-card" data-category="app">
+    <img src="./src/project/fitcheck.png" class="preview-img">
+    <div class="experience-details">
+        <h2>BMI Calculator</h2>
+        <p>Dec 2024</p>
+        <p>Fitcheck is a lightweight and user-friendly Body Mass Index (BMI) calculator application developed using Kotlin. 
+            This project was created as part of my self-practice to enhance my skills in Kotlin and Android app development. </p>
+    </div>
+    <a href="https://github.com/thitiP11222/Job-Center-Management-System">
+        <i class="bi bi-box-arrow-up-right"></i>
+    </a>
+</div>
+
+
+<div class="experience-card" data-category="web">
+    <img src="https://raw.githubusercontent.com/thitiP11222/my-website/main/src/project/bloom.png" class="preview-img">
+    <div class="experience-details">
+        <h2>Web Application</h2>
+        <p>Aug 2024 - Sep 2024</p>
+        <p>I created a dynamic e-commerce platform for skincare goods that integrated web services to improve the user experience and streamline product management.</p>
+    </div>
+    <a href="https://github.com/thitiP11222/Project-WebApp" class="external-link">
+        <i class="bi bi-box-arrow-up-right"></i>
+    </a>
+</div>
+
+<div class="experience-card" data-category="bs">
+    <img src="https://raw.githubusercontent.com/thitiP11222/my-website/main/src/project/crrup.png" class="preview-img">
+    <div class="experience-details">
+        <h2>Job Center
+            Management System</h2>
+        <p>Aug 2024 - Sep 2024</p>
+        <p>focusing on requirement gathering, analysis, and
+            management to design and develop software solutions based on client specifications.</p>
+    </div>
+    <a href="https://github.com/thitiP11222/Job-Center-Management-System">
+        <i class="bi bi-box-arrow-up-right"></i>
+    </a>
+</div>
+
+<div class="experience-card" data-category="bs">
+    <img src="https://raw.githubusercontent.com/thitiP11222/my-website/main/src/project/rewear.png" class="preview-img">
+    <div class="experience-details">
+        <h2 class="title-project">Rewear Project
+            | Business Development</h2>
+        <p>Oct 2024 - Sep 2024</p>
+        <p> Created a platform promoting sustainable fashion
+            through second-hand sales and recycling to reduce textile waste.</p>
+    </div>
+</div>
+
+    <style>
+        .navbar {
+            padding: 10px;
+            display: flex;
+            justify-content: start;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background-color: #f0f0f0;
+            color: #1c1c1c;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #000000;
+            color: #fff;
+        }
+
+        .nav-btn.active {
+            background-color: #000000;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Experience card styling */
+        /* Card Styling */
+.experience-card {
+    position: relative; /* Make it relative to position child elements */
+    display: flex;
+    align-items: center;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    gap: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.preview-img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Experience Details */
+.experience-details {
+    flex: 1; /* Take up the remaining space */
+}
+
+.experience-details h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.experience-details p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+/* External Link Icon */
+.external-link {
+    position: absolute; /* Position inside the card */
+    top: 10px; /* Adjust to be in the top-right corner */
+    right: 10px;
+    font-size: 1.5rem;
+    color: #ff6600;
+    text-decoration: none;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.external-link:hover {
+    color: #cc5500;
+    transform: scale(1.2);
+}
+
+
+    </style>

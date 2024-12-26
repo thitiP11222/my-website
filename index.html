@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thitiporn Panthanan - Software Engineering</title>
+    <title>Thitiporn Panthanan - Website</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="src/KH-logi.png">
+    <link rel="icon" href="src/KH-logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 
@@ -15,37 +15,53 @@
 <body>
     <section class="main-content-1">
         <nav>
-            <div class="logo"><img src="src/KH-logi.png" class="logo-nav"></div>
-            <div class="nav-links">
-                <a href="/index.html" id="homeLink">Home</a>
-                <a href="/about-me.html" id="aboutMeLink">About me</a>
+
+            <div class="image-logo">
+                <div class="logo"><img src="/src/KH-logo.png" class="logo-nav"></div>
+                <h2>Thitiporn</h2>
             </div>
+            <div class="nav-toggle">
+                <a href="/index.html" id="homeLink" class="nav-link active">Home</a>
+                <a href="/about-me.html" id="aboutMeLink" class="nav-link">About Me</a>
+                <a href="/project.html" id="projectLink" class="nav-link">Project</a>
+
+            </div>
+
             <a href="https://github.com/thitiP11222" class="see-work-btn">See my work</a>
 
         </nav>
 
         <div class="main-content">
             <div class="profile-section">
-                <img src="https://raw.githubusercontent.com/thitiP11222/my-website/main/src/profile-1.jpg" alt="Khing">
-                <h1>I'm Thitiporn</h1>
-                <div class="profile-location">
-                    ICT student based in <br> Bangkok, Thailand
+                <div class="profile-info ">
+                    <img src="https://raw.githubusercontent.com/thitiP11222/my-website/main/src/profile-1.jpg"
+                        alt="Khing">
+                    <h1>I'm Thitiporn</h1>
+                    <div class="profile-location">
+                        ICT student based in <br> Bangkok, Thailand
+                    </div>
+                    <div class="contact-icons">
+                        <a href="https://www.linkedin.com/in/thitiporn-panthanan-533b90254/"> <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png">
+                        </a>
+                        <a href="https://github.com/thitiP11222"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/220px-GitHub_Invertocat_Logo.svg.png"
+                                alt="GitHub" title="GitHub"></a>
+
+                    </div>
                 </div>
+
+
             </div>
 
             <div class="experience-section" id="dynamicContent">
-                <h2>Passionate about crafting <br><span class="highlight">developing software</span><br> that transforms
-                    lives.</h2>
+                <h2>Building <span class="highlight">software</span><br> that transforms lives.</h2>
                 <div class="action-buttons">
                     <a href="mailto:khing12287@gmail.com" class="primary-btn">Talk with me</a>
                     <a href="https://github.com/thitiP11222" class="secondary-btn">See my work</a>
                 </div>
 
                 <div style="margin-top: 60px;">
-
-
-
-
 
                     <h2 id="recent-projects">RECENT PROJECTS</h2>
 
@@ -78,7 +94,10 @@
                             <p style="font-size: 1rem; color: #666;"> focusing on requirement gathering, analysis, and
                                 management to design and develop software solutions based on client specifications.</p>
                         </div>
-
+                        <a href="                        https://github.com/thitiP11222/Job-Center-Management-System"
+                            style="position: absolute; top: 10px; right: 10px; text-decoration: none; color: #ff6600; font-size: 1.5rem;">
+                            <i class="bi bi-box-arrow-up-right"></i>
+                        </a>
                     </div>
                     <div class="experience-card"
                         style="position: relative; display: flex; align-items: center; background-color: white; color: black; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
@@ -96,7 +115,7 @@
 
                 </div>
 
-                <h2 >WORK EXPERIENCE</h2>
+                <h2>WORK EXPERIENCE</h2>
 
                 <div class="experience-card"
                     style="position: relative; display: flex; align-items: center; background-color: white; color: black; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
@@ -157,7 +176,7 @@
             <p>&copy; 2024 Thitiporn Panthanan</p>
         </div>
     </footer>
-    
+
     <script>
         // Add smooth scrolling to all links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -183,65 +202,210 @@
 </html>
 
 <script>
-    // Get all navigation links
-    const navLinks = document.querySelectorAll('.nav-links a');
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get all navigation links
+        const navLinks = document.querySelectorAll('.nav-link');
+        const dynamicContent = document.getElementById('dynamicContent');
 
-    // Function to set the active class based on the current page
-    function setActiveNav() {
-        // Get the current page's pathname
-        const currentPath = window.location.pathname;
+        // Create highlight element for smooth toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const highlight = document.createElement('div');
+        highlight.classList.add('nav-highlight');
+        navToggle.appendChild(highlight);
 
-        // Loop through all navigation links
+        // Function to set the highlight position
+        function moveHighlight(activeLink) {
+            const linkRect = activeLink.getBoundingClientRect();
+            const parentRect = navToggle.getBoundingClientRect();
+
+            highlight.style.height = `${linkRect.height}px`;
+            highlight.style.transform = `translate(${linkRect.left - parentRect.left}px, ${linkRect.top - parentRect.top}px)`;
+        }
+
+        // Function to set active class dynamically
+        function setActiveNav(link) {
+            navLinks.forEach(nav => nav.classList.remove('active'));
+            link.classList.add('active');
+            moveHighlight(link);
+        }
+
+        // Initialize the highlight position for the default active link
+        const initialActiveLink = document.querySelector('.nav-link.active');
+        if (initialActiveLink) {
+            moveHighlight(initialActiveLink);
+        }
+
+        // Add event listeners to all nav links
         navLinks.forEach(link => {
-            // Remove the active class from all links
-            link.classList.remove('active');
+            link.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent default link behavior
 
-            // Check if the link's href matches the current path
-            if (link.getAttribute('href') === currentPath || (currentPath === '/' && link.getAttribute('href') === '/index.html')) {
-                link.classList.add('active');
-            }
-        });
-    }
+                // Set active class and move highlight
+                setActiveNav(link);
 
-    // Run the setActiveNav function on page load
-    setActiveNav();
-
-    // Add click event listener to all nav links
-    navLinks.forEach(link => {
-        link.addEventListener('click', function (event) {
-            // Prevent default link behavior for internal links
-            if (this.getAttribute('href').startsWith('#') || this.getAttribute('href') === '/about-me.html') {
-                event.preventDefault();
-
-                // Remove active class from all links
-                navLinks.forEach(nav => nav.classList.remove('active'));
-
-                // Add the active class to the clicked link
-                this.classList.add('active');
-
-                // Dynamically load "About Me" content
-                if (this.id === 'aboutMeLink') {
+                // Handle dynamic content loading or smooth scrolling
+                const href = link.getAttribute('href');
+                if (href.startsWith('#')) {
+                    // Smooth scroll for anchor links
+                    const targetId = href.substring(1);
+                    document.getElementById(targetId)?.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                } else if (href === '/about-me.html') {
+                    // Dynamically load "About Me" content
                     fetch('about-me.html')
                         .then(response => {
                             if (!response.ok) {
-                                throw new Error('Network response was not ok');
+                                throw new Error('Failed to load about-me.html');
                             }
                             return response.text();
                         })
                         .then(data => {
-                            document.getElementById('dynamicContent').innerHTML = data;
+                            dynamicContent.innerHTML = data;
                         })
                         .catch(error => {
                             console.error('Error loading about-me.html:', error);
                         });
-                } else if (this.getAttribute('href').startsWith('#')) {
-                    // Smooth scroll for anchor links
-                    const targetId = this.getAttribute('href').substring(1);
-                    document.getElementById(targetId)?.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                } else if (href === '/project.html') {
+                    // Dynamically load "About Me" content
+                    fetch('project.html')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Failed to load project.html');
+                            }
+                            return response.text();
+                        })
+                        .then(data => {
+                            dynamicContent.innerHTML = data;
+                        })
+                        .catch(error => {
+                            console.error('Error loading project.html:', error);
+                        });
+                } else {
+                    // If the link is to another page, update the window location
+                    window.location.href = href;
                 }
-            }
+            });
         });
     });
+
+    // Project Category
+    function filterProjects(category, button) {
+        // Filter projects
+        const projects = document.querySelectorAll('.experience-card');
+        projects.forEach((project) => {
+            if (category === 'all' || project.dataset.category === category) {
+                project.style.display = 'flex';
+            } else {
+                project.style.display = 'none';
+            }
+        });
+
+        // Manage active state for buttons
+        const buttons = document.querySelectorAll('.nav-btn');
+        buttons.forEach((btn) => btn.classList.remove('active')); // Remove 'active' from all buttons
+        button.classList.add('active'); // Add 'active' to the clicked button
+    }
+
+
+
+
 </script>
+
+
+<style>
+    /* Experience card styling */
+    .experience-card {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        color: black;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        gap: 20px;
+        /* Add space between image and text */
+    }
+
+    .experience-card:hover {
+        transform: translateX(10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Image styling */
+    .preview-img {
+        width: 150px;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+        /* Ensures the image scales nicely */
+    }
+
+    /* Experience details */
+    /* Card Styling */
+    .experience-card {
+        position: relative;
+        /* Make it relative to position child elements */
+        display: flex;
+        align-items: center;
+        background-color: white;
+        color: black;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        gap: 20px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .experience-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Image Styling */
+    .preview-img {
+        width: 150px;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    /* Experience Details */
+    .experience-details {
+        flex: 1;
+        /* Take up the remaining space */
+    }
+
+    .experience-details h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #222;
+        margin-bottom: 10px;
+    }
+
+    .experience-details p {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 6px;
+    }
+
+    /* External Link Icon */
+    .external-link {
+        position: absolute;
+        /* Position inside the card */
+        top: 10px;
+        /* Adjust to be in the top-right corner */
+        right: 10px;
+        font-size: 1.5rem;
+        color: #ff6600;
+        text-decoration: none;
+        transition: transform 0.3s, color 0.3s;
+    }
+
+    .external-link:hover {
+        color: #cc5500;
+        transform: scale(1.2);
+    }
+</style>
